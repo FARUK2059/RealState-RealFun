@@ -3,18 +3,20 @@ import { Link, NavLink } from "react-router-dom";
 // AOS Link setup
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 AOS.init();
 
 
 const Navbar = () => {
-    // const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
 
-    // const handleSignOut = () => {
-    //     logOut()
-    //         .then()
-    //         .catch()
-    // }
+    const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -48,16 +50,14 @@ const Navbar = () => {
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-4">
                             <div className="w-10 rounded-full">
                                 <h2>amar suner bangla</h2>
-                                {/* <img alt="Tailwind CSS Navbar component" src={users} /> */}
+                                <img alt="Tailwind CSS Navbar component" src={user} />
                             </div>
                         </div>
 
-                        {/* {
+                        {
                             user ? <Link to="/login"><button onClick={handleSignOut} className="btn btn-active btn-primary">Sign Out</button></Link> :
                                 <Link to="/login"><button className="btn btn-active btn-primary">Login</button></Link>
-                        } */}
-
-                        <Link to="/login"><button className="btn btn-active btn-primary">Login</button></Link>
+                        }
 
                     </div>
                 </div>

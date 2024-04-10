@@ -1,10 +1,56 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../../Firebase/firebase.config";
+
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
+    const { signInPassword, user, logOut } = useContext(AuthContext);
 
+    
+    const auth = getAuth(app);
 
+    // Google login
+    const googleProvider = new GoogleAuthProvider();
 
+    const handleGoogleSignIn = () => {
+        // console.log("google mama is coming");
+        signInWithPopup(auth, googleProvider)
+            .then(Result => {
+                const logUser = Result.user;
+                console.log(logUser);
+                toast.success("Your LogIn successfully")
+            })
+            .catch(error => {
+                console.log("error", error.message)
+                toast.error("Your login faild")
+            })
+    }
+
+    // Login With GitHub
+    const gitHubProvider = new GithubAuthProvider();
+
+    const handleGitHubSignIn = () => {
+        signInWithPopup(auth, gitHubProvider)
+        .then(result => {
+            const logGitUser = result.user;
+            console.log(logGitUser);
+            toast.success("Your GitHub LogIn successfully")
+        })
+        .catch(error => {
+            console.log(error);
+            toast.error("Your GitHub login faild")
+        })
+    }
+    
+    // password Login
     const handleLogin = e => {
         e.preventDefault();
         console.log(e.currentTarget);
@@ -12,18 +58,33 @@ const Login = () => {
         const email = form.get('email');
         const password = form.get('password');
         console.log(email, password);
-        // signIn(email, password)
-        //     .then(result => {
-        //         console.log(result.user)
-        //     })
-        //     .catch(error => {
-        //         console.error(error)
-        //     })
+        signInPassword(email, password)
+            .then(result => {
+                console.log(result.user)
+                toast.success("Your LogIn successfully")
+            })
+            .catch(error => {
+                console.error(error)
+                toast.error("Inpute your current password")
+            })
+    }
+
+    // sign Out/ Log out section
+    const handleLogOut = () => {
+        logOut()
+            .then(result => {
+                console.log(result)
+                toast.success("Your LogOut successfully")
+            })
+            .catch(error =>{
+                console.log(error)
+                toast.error("Your logOut faild")
+            })
     }
 
     return (
         <div>
-            <div className="grid justify-center mb-6 font-poppins mt-10">
+            <div className="grid justify-center  font-poppins p-10">
                 <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-[#eee] dark:text-gray-800 border">
                     <h1 className="text-2xl font-bold text-center">Login your account</h1>
 
@@ -51,8 +112,18 @@ const Login = () => {
                     </div>
                     <p className="text-xs text-center sm:px-6 dark:text-gray-600">Do not Have An Account ?
                         <Link to="/register" rel="noopener noreferrer" href="#" className="underline dark:text-gray-800"> Register</Link>
-                    </p>
+                    </p><br />
+                    <h2>SingIn With other account</h2>
+                    {
+                        user ?
+                            <button onClick={handleLogOut} className="btn btn-accent">Sign Out</button> :
+                            <div className="flex gap-4 p-2">
+                                <button onClick={handleGoogleSignIn} className="btn btn-primary"><span className=""><FcGoogle /></span> Google</button>
+                                <button onClick={handleGitHubSignIn} className="btn btn-primary"><span><FaGithub /></span> GitHub </button>
+                            </div>
+                    }
                 </div>
+                <ToastContainer />
             </div>
 
         </div>

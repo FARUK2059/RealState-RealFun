@@ -1,7 +1,18 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
+// import { useLocation } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Register = () => {
+    const { creatUser } = useContext(AuthContext);
+
+    // const location = useLocation();
+    // console.log(location);
+
 
     const handleregister = e => {
         e.preventDefault();
@@ -11,25 +22,40 @@ const Register = () => {
         const photoURL = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
+        const accepted = e.target.tarms.checked;
         console.log(name, photoURL, email, password);
 
-        // Creat user
-        // creatUser(email, password)
-        //     .then(result => {
-        //         console.log(result.user)
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
+        if (!/[A-Z]/.test(name)) {
+            toast.error('Your name should have  Upper cash carecter')
+            return;
+        }
+        if (password.length < 6) {
+            toast.error('Password should be at last 6 characters');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            toast.error('Your password should have at last on Upper cash carecter')
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            toast.error('Your password should be have last on Lower cash carecter')
+            return;
+        }
+        else if (!accepted) {
+            toast.error("Please accepted our turms and condition")
+            return;
+        }
 
-
-        // creatUser(email, password)
-        // .then(Result => {
-        //     console.log(Result.user)
-        // })
-        // .catch(error => {
-        //     console.error(error)
-        // })
+        // Creat user setup
+        creatUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                toast.success("Your Registation successfully")
+            })
+            .catch(error => {
+                console.log(error)
+                toast.error("You already registered")
+            })
 
     }
 
@@ -65,14 +91,12 @@ const Register = () => {
                                     <span className="label-text text-black font-medium">Password</span>
                                 </label>
                                 <input type="password" name="password" id="password" placeholder="Enter your password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 border focus:dark:border-violet-600" required />
-                                <div className="flex justify-end text-xs dark:text-gray-600">
-                                    <a rel="noopener noreferrer" href="#">Forgot Password?</a>
-                                </div>
                             </div>
-                            <div>
-                                <h2 className="grid text-[#84cc16] text-sm justify-start"><span className="checkbox-primary"></span> Accept Term & Conditions</h2>
+                            <div className="mb-6 ">
+                                <input type="checkbox" name="tarms" id="tarms" className="" />
+                                <label className="ml-2" htmlFor="tarms"> Accept our <a className="text-blue-600" href=""> Tarms and Condition </a> </label>
                             </div>
-                            <button className="block w-full p-3 text-center rounded-lg dark:text-gray-50 dark:bg-violet-600">Login</button>
+                            <button className="block w-full p-3 text-center rounded-lg dark:text-gray-50 dark:bg-violet-600">Submit</button>
                         </form>
 
                         <div className=" items-center pt-4 space-x-1">
@@ -81,6 +105,7 @@ const Register = () => {
                         <p className="text-xs text-center sm:px-6 dark:text-gray-600">Dont’t Have An Account ?
                             <Link to="/login" id="##" rel="noopener noreferrer" href="#" className="underline dark:text-gray-800"> login</Link>
                         </p>
+                        <ToastContainer />
                     </div>
                 </div>
 
