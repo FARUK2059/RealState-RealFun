@@ -13,9 +13,9 @@ const EastDitails = () => {
     const estateInt = parseInt(id);
     // console.log(id);
     const estate = estateDitails?.find((estat) => estat.id === estateInt)
-    console.log(estate);
+    // console.log(estate);
 
-    const { image, segment_name, estate_title, description, price, status, area, location, facilities } = estate;
+    const { image, segment_name, estate_title, description, price, status, area, location } = estate;
 
 
     return (
@@ -27,7 +27,7 @@ const EastDitails = () => {
                     <div className="grid lg:grid-cols-3 p-4 gap-8 mt-6 mb-6">
 
                         {/* Left Side img */}
-                        <div className="grid lg:col-span-2 justify-center items-center text-center rounded-2xl border">
+                        <div className="grid lg:col-span-2 justify-center items-center text-center rounded-2xl">
                             <img className="min-h-full rounded-2xl" src={image} alt="" />
                         </div>
 
@@ -82,13 +82,11 @@ const EastDitails = () => {
                                             <td className="text-lg font-medium">Facilities</td>
                                             <td className=" text-green-300 font-bold text-lg flex gap-3">:
                                                 {
-                                                    estate.facilities.map((este) =>
-                                                        <>
+                                                    estate.facilities.map((este) => <div key={este}> 
                                                             <div className="">
                                                                 {este}
                                                             </div>
-                                                        </>
-
+                                                    </div>
                                                     )
                                                 }
                                             </td>

@@ -7,6 +7,7 @@ import Register from "../Components/UserSection/Register/Register";
 import Error from "./Error";
 import User from "../Components/Header/Navbar/LinkSection/User";
 import EastDitails from "../Components/Header/Navbar/Home/EstateDitails/EastDitails";
+import PrivetRout from "../Components/PrivetRout/PrivetRout";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,9 @@ const router = createBrowserRouter([
       {
         path: "/estateditails/:id",
         loader: () => fetch('/data.json'),
-        element: <EastDitails></EastDitails>
+        element: <PrivetRout>
+          <EastDitails></EastDitails>
+        </PrivetRout>
       }
     ],
   },
