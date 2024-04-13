@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
 
@@ -7,40 +7,55 @@ export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true)
+    // const [loading, setLoading] = useState(true)
 
+    // Creat New user
     const creatUser = (email, password) => {
-        setLoading(true);
+        // setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    // Update User Profile
+    const updateUserProfile = (name, photoURL) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoURL
+        })
+
+    }
+
+    // Sign In with Password
     const signInPassword = (email, password) => {
-        setLoading(true);
+        // setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+        // Logout section
     const logOut = () => {
-        setLoading(true);
+        // setLoading(true);
         return signOut(auth);
     }
 
-    useEffect( () => {
-       const unSubcribe = onAuthStateChanged(auth, currentUser => {
+    // UseState changed
+    useEffect(() => {
+        const unSubcribe = onAuthStateChanged(auth, currentUser => {
             console.log('user in th e state changed', currentUser)
             setUser(currentUser)
-            setLoading(false)
+            // setLoading(false)
         })
         return () => {
             unSubcribe();
         }
     }, [])
 
+    // Output Info
     const authInfo = {
         user,
-        loading,
+        // loading,
         creatUser,
+        updateUserProfile,
         signInPassword,
         logOut
     }

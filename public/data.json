@@ -1,0 +1,99 @@
+[
+    {
+      "image": "http://utouchdesign.com/themes/realfun/images/single-property-02.jpg",
+      "estate_title": "City General Hospital",
+      "id": 123001,
+      "segment_name": "Hospitals",
+      "description": "State-of-the-art medical facility providing comprehensive healthcare services.",
+      "price": "Contact for Price",
+      "status": "Sale",
+      "area": "50000 sq ft",
+      "location": "Downtown, CityName",
+      "facilities": ["Emergency Room", "ICU", "Radiology", "Surgery Suites"]
+    },
+    {
+      "image": "http://utouchdesign.com/themes/realfun/images/single-property-04.jpg",
+      "estate_title": "Maplewood High School",
+      "id": 123002,
+      "segment_name": "Schools",
+      "description": "Leading educational institution offering K-12 education.",
+      "price": "Contact for Price",
+      "status": "Rent",
+      "area": "100000 sq ft",
+      "location": "Suburb, CityName",
+      "facilities": ["Classrooms", "Library", "Gymnasium", "Auditorium"]
+    },
+    {
+      "image": "http://utouchdesign.com/themes/realfun/images/single-property-03.jpg",
+      "estate_title": "St. Peter's Cathedral",
+      "id": 123003,
+      "segment_name": "Religious Facilities",
+      "description": "Historic cathedral serving as a spiritual sanctuary for the community.",
+      "price": "$2,500,000",
+      "status": "Sale",
+      "area": "15000 sq ft",
+      "location": "Old Town, CityName",
+      "facilities": ["Sanctuary", "Chapel", "Meeting Rooms", "Bell Tower"]
+    },
+    {
+      "image": "https://template.unicoderbd.com/uniland/fullwidth/assets/images/slider/5.png",
+      "estate_title": "City Central Station",
+      "id": 123004,
+      "segment_name": "Transportation Terminals",
+      "description": "Busy transportation hub connecting various modes of transport.",
+      "price": "Contact for Price",
+      "status": "Rent",
+      "area": "75000 sq ft",
+      "location": "City Center, CityName",
+      "facilities": ["Ticket Counters", "Waiting Area", "Platforms", "Retail Shops"]
+    },
+    {
+      "image": "https://template.unicoderbd.com/uniland/fullwidth/assets/images/property_grid/property-grid-5.png",
+      "estate_title": "Grand Convention Center",
+      "id": 123005,
+      "segment_name": "Convention Centers",
+      "description": "Versatile event space suitable for conferences, exhibitions, and more.",
+      "price": "$5,000,000",
+      "status": "Sale",
+      "area": "100000 sq ft",
+      "location": "Business District, CityName",
+      "facilities": ["Exhibition Halls", "Meeting Rooms", "Auditorium", "Catering Services"]
+    },
+    {
+      "image": "https://template.unicoderbd.com/uniland/fullwidth/assets/images/property/3.png",
+      "estate_title": "Metro Art Gallery",
+      "id": 123006,
+      "segment_name": "Art Galleries",
+      "description": "Contemporary art gallery showcasing local and international artists.",
+      "price": "$1,200,000",
+      "status": "Sale",
+      "area": "5000 sq ft",
+      "location": "Arts District, CityName",
+      "facilities": ["Exhibition Space", "Storage", "Reception Area", "Workshops"]
+    },
+    {
+      "image": "https://template.unicoderbd.com/uniland/fullwidth/assets/images/blog/1.png",
+      "estate_title": "Broadway Theater",
+      "id": 123007,
+      "segment_name": "Theaters",
+      "description": "Iconic theater venue hosting a variety of performances and events.",
+      "price": "$3,000,000",
+      "status": "Sale",
+      "area": "20000 sq ft",
+      "location": "Theater District, CityName",
+      "facilities": ["Main Stage", "Dressing Rooms", "Lobby", "Concessions"]
+    },
+    {
+      "image": "https://demoapus1.com/justhome/wp-content/uploads/elementor/thumbs/pro2-qlye01183217etzot0gwbusz3xxk654xss9681x3ec.jpg",
+      "estate_title": "Central City Library",
+      "id": 123008,
+      "segment_name": "Libraries",
+      "description": "Modern public library with extensive collections and community programs.",
+      "price": "Contact for Price",
+      "status": "Rent",
+      "area": "30000 sq ft",
+      "location": "City Center, CityName",
+      "facilities": ["Reading Areas", "Study Rooms", "Computer Stations", "Children's Section"]
+    }
+  ]
+  

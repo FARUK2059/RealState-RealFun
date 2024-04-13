@@ -29,7 +29,7 @@ const Login = () => {
                 toast.success("Your LogIn successfully")
             })
             .catch(error => {
-                console.log("error", error.message)
+                console.log(error)
                 toast.error("Your login faild")
             })
     }
@@ -60,8 +60,9 @@ const Login = () => {
         console.log(email, password);
         signInPassword(email, password)
             .then(result => {
-                console.log(result.user)
+                console.log(result.user);
                 toast.success("Your LogIn successfully")
+                
             })
             .catch(error => {
                 console.error(error)

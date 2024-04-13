@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
-    const { creatUser } = useContext(AuthContext);
+    const { creatUser, updateUserProfile } = useContext(AuthContext);
 
     // const location = useLocation();
     // console.log(location);
@@ -50,7 +50,11 @@ const Register = () => {
         creatUser(email, password)
             .then(result => {
                 console.log(result.user)
-                toast.success("Your Registation successfully")
+                updateUserProfile(name, photoURL)
+                    .then(() => {
+                        toast.success("Your Registation successfully")
+                    })
+
             })
             .catch(error => {
                 console.log(error)
@@ -92,8 +96,8 @@ const Register = () => {
                                 </label>
                                 <input type="password" name="password" id="password" placeholder="Enter your password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 border focus:dark:border-violet-600" required />
                             </div>
-                            <div className="mb-6 ">
-                                <input type="checkbox" name="tarms" id="tarms" className="" />
+                            <div className="flex mb-6 items-center">
+                                <input type="checkbox" defaultChecked className="checkbox border-orange-400 checked:border-indigo-800 [--chkbg:theme(colors.indigo.600)] [--chkfg:orange]" name="tarms" id="tarms" />
                                 <label className="ml-2" htmlFor="tarms"> Accept our <a className="text-blue-600" href=""> Tarms and Condition </a> </label>
                             </div>
                             <button className="block w-full p-3 text-center rounded-lg dark:text-gray-50 dark:bg-violet-600">Submit</button>
