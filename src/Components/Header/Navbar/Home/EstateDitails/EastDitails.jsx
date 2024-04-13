@@ -20,7 +20,7 @@ const EastDitails = () => {
 
     return (
         <div className="mt-4">
-            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://demoapus1.com/justhome/wp-content/uploads/elementor/thumbs/p19-qlye011aq8021d2wkwmxcx1bf1n8ovhb7dz70p8q7w.jpg)' }}>
+            <div className="hero min-h-screen" style={{ backgroundImage: `url(${image})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
 
@@ -33,7 +33,7 @@ const EastDitails = () => {
 
                         {/* ditails section  */}
                         <div className=" gap-2 text-white">
-                            <h2 className=" lg:text-4xl text-[#facc15] text-3xl font-extrabold border rounded-full ">Name : {segment_name}</h2>
+                            <h2 className=" lg:text-4xl text-[#facc15] text-3xl font-extrabold border rounded-full ">{segment_name}</h2>
                             <h4 className=" font-semibold text-xl mt-2 mb-2">Title : {estate_title} </h4>
                             <hr />
                             <h5 className="text-[#131313b3]  text-xl font-mediumtext-[16px] mt-2 mb-2"> Ditails</h5>

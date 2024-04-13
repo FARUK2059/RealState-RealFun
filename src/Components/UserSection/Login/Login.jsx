@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../../Firebase/firebase.config";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +15,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const { signInPassword, user, logOut } = useContext(AuthContext);
+
+    // Navigation System
+    const location = useLocation();
+    const navigat = useNavigate();
+    const forms = location?.state || "/";
 
     
     const auth = getAuth(app);
@@ -25,8 +32,10 @@ const Login = () => {
         signInWithPopup(auth, googleProvider)
             .then(Result => {
                 const logUser = Result.user;
-                console.log(logUser);
-                toast.success("Your LogIn successfully")
+                console.log(logUser); 
+                toast.success("Your LogIn successfully");
+                navigat(forms);
+                
             })
             .catch(error => {
                 console.log(error)
@@ -42,6 +51,7 @@ const Login = () => {
         .then(result => {
             const logGitUser = result.user;
             console.log(logGitUser);
+            navigat(forms);
             toast.success("Your GitHub LogIn successfully")
         })
         .catch(error => {
@@ -61,7 +71,8 @@ const Login = () => {
         signInPassword(email, password)
             .then(result => {
                 console.log(result.user);
-                toast.success("Your LogIn successfully")
+                navigat(forms);
+                toast.success("Your LogIn successfull")
                 
             })
             .catch(error => {
@@ -75,11 +86,13 @@ const Login = () => {
         logOut()
             .then(result => {
                 console.log(result)
-                toast.success("Your LogOut successfully")
+                toast.success("LogOut successfully")
+                navigat(forms);
+                
             })
             .catch(error =>{
                 console.log(error)
-                toast.error("Your logOut faild")
+                toast.error("logOut faild")
             })
     }
 

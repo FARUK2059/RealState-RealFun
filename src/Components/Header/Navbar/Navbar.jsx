@@ -28,7 +28,7 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/user">User Profile</NavLink></li>
+        <li><NavLink to="/user">Profile</NavLink></li>
         <li><NavLink to="/blog">blog</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
     </>
@@ -76,7 +76,7 @@ const Navbar = () => {
 
 
                         {
-                            user ? <Link to="/login"><button onClick={handleSignOut} className="btn btn-active btn-primary rounded-full"> <LuUser2 />Sign Out</button></Link> :
+                            user ? <Link to="/"><button onClick={handleSignOut} className="btn btn-active btn-primary rounded-full"> <LuUser2 />Sign Out</button></Link> :
                                 <Link to="/login"><button className="btn btn-active btn-primary rounded-full"><LuUser2 />Login</button></Link>
                         }
 

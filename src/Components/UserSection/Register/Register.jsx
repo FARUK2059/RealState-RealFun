@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
-// import { useLocation } from "react-router-dom";
+// import { useNavigate, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,6 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const { creatUser, updateUserProfile } = useContext(AuthContext);
+
+    // const location = useLocation();
+    // const navigat = useNavigate();
+    // const forms = location?.state || "/";
 
     // const location = useLocation();
     // console.log(location);
@@ -54,11 +58,13 @@ const Register = () => {
                     .then(() => {
                         toast.success("Your Registation successfully")
                     })
+                    // navigat(forms);
+                    
 
             })
             .catch(error => {
                 console.log(error)
-                toast.error("You already registered")
+                toast.error("You already registered, Please back to home")
             })
 
     }
