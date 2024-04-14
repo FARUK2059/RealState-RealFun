@@ -24,15 +24,15 @@ const EastDitails = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
 
-                    <div className="grid lg:grid-cols-3 p-4 gap-8 mt-6 mb-6">
+                    <div className="grid lg:grid-cols-3 lg:p-3 md:p-2 p-1 lg:gap-8 md:gap-4 gap-2 mt-6 mb-6">
 
                         {/* Left Side img */}
-                        <div className="grid lg:col-span-2 justify-center items-center text-center rounded-2xl">
-                            <img className="min-h-full rounded-2xl" src={image} alt="" />
+                        <div className="grid lg:col-span-2 justify-center items-center text-center  rounded-2xl">
+                            <img className="min-h-full mx-auto rounded-2xl" src={image} alt="" />
                         </div>
 
                         {/* ditails section  */}
-                        <div className=" gap-2 text-white">
+                        <div className=" gap-2 text-white backdrop-blur-sm">
                             <h2 className=" lg:text-4xl text-[#facc15] text-3xl font-extrabold border rounded-full ">{segment_name}</h2>
                             <h4 className=" font-semibold text-xl mt-2 mb-2">Title : {estate_title} </h4>
                             <hr />
@@ -96,7 +96,7 @@ const EastDitails = () => {
                                 </table>
                             </div>
                             <div className="p-2">
-                                <Link to="/"><button className="btn btn-ghost text-yellow-200">Back to Home</button></Link>
+                                <Link to="/"><button className="btn btn-ghost text-yellow-200 border-white">Back to Home</button></Link>
                             </div>
                         </div>
 

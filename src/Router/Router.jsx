@@ -8,6 +8,7 @@ import Error from "./Error";
 import User from "../Components/Header/Navbar/LinkSection/User";
 import EastDitails from "../Components/Header/Navbar/Home/EstateDitails/EastDitails";
 import PrivetRout from "../Components/PrivetRout/PrivetRout";
+import UpdateProfile from "../Components/Header/Navbar/LinkSection/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/user",
         element: <User></User>
+      },
+      {
+        path: "/UpdateProfile",
+        element: <UpdateProfile></UpdateProfile>
       },
       {
         path: "/login",
