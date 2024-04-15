@@ -9,6 +9,7 @@ import User from "../Components/Header/Navbar/LinkSection/User";
 import EastDitails from "../Components/Header/Navbar/Home/EstateDitails/EastDitails";
 import PrivetRout from "../Components/PrivetRout/PrivetRout";
 import UpdateProfile from "../Components/Header/Navbar/LinkSection/UpdateProfile";
+import Blog from "../Components/Header/Navbar/Home/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path: "/UpdateProfile",
         element: <UpdateProfile></UpdateProfile>
 
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>
       },
       {
         path: "/login",
