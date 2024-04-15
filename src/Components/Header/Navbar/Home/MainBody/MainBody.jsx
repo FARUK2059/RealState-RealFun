@@ -22,7 +22,9 @@ const MainBody = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4 md:gap-3 gap-2 p-4">
             {
                 RealStateData.map(estate => <div key={estate.id}>
-                    <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-300 dark:text-gray-800">
+                    <div data-aos="flip-left"
+                        data-aos-easing="ease-out-cubic"
+                        data-aos-duration="2000" className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-300 dark:text-gray-800">
                         <div className="flex space-x-4">
 
                             <div className="flex flex-col space-y-1">

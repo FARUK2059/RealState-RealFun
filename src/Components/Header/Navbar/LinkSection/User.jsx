@@ -18,11 +18,13 @@ const User = () => {
 
 
     return (
-        <div className="mt-4">
-            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://editor.liramail.com/images/realestate/realestate_pre/properties-1.png)' }}>
+        <div data-aos="fade-up" data-aos-duration="1500" className="mt-4">
+            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://images.pexels.com/photos/7031414/pexels-photo-7031414.jpeg?auto=compress&cs=tinysrgb&w=600)' }}>
                 <div className="hero-overlay bg-opacity-30"></div>
                 <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md border border-yellow-800 rounded-lg backdrop-blur-sm">
+
+                    {/* Main Body */}
+                    <div data-aos="zoom-in-down" data-delay="2000" data-aos-duration="2500" className="max-w-md border border-yellow-800 rounded-lg backdrop-blur-sm">
                         <div className="flex flex-col max-w-md p-6  text-white ">
                             <img src={user.photoURL} alt="" className="flex-shrink-0 object-cover h-64 rounded-lg sm:h-96 dark:bg-gray-500 aspect-square" />
                             <div className="overflow-x-auto mt-2">
@@ -46,6 +48,7 @@ const User = () => {
                             <Link to="/"><button className="btn btn-primary"> Back to Home </button></Link>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

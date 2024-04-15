@@ -29,7 +29,7 @@ const EastDitails = () => {
 
 
     return (
-        <div className="mt-4">
+        <div data-aos="fade-up" data-aos-duration="1500" className="mt-4">
             <div className="hero min-h-screen" style={{ backgroundImage: `url(${image})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
@@ -37,12 +37,14 @@ const EastDitails = () => {
                     <div className="grid lg:grid-cols-3 lg:p-3 md:p-2 p-1 lg:gap-8 md:gap-4 gap-2 mt-6 mb-6">
 
                         {/* Left Side img */}
-                        <div className="grid lg:col-span-2 justify-center items-center text-center  rounded-2xl">
+                        <div data-aos="flip-left"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000" className="grid lg:col-span-2 justify-center items-center text-center  rounded-2xl">
                             <img className="min-h-full mx-auto rounded-2xl" src={image} alt="" />
                         </div>
 
                         {/* ditails section  */}
-                        <div className=" gap-2 text-white backdrop-blur-sm">
+                        <div data-aos="fade-down-left" data-aos-duration="1500"  className=" gap-2 text-white backdrop-blur-sm">
                             <h2 className=" lg:text-4xl text-[#facc15] text-3xl font-extrabold border rounded-full ">{segment_name}</h2>
                             <h4 className=" font-semibold text-xl mt-2 mb-2">Title : {estate_title} </h4>
                             <hr />

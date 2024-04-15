@@ -40,7 +40,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div data-aos="fade-down" data-aos-duration="1000" className="">
+            <div data-aos="fade-down" data-aos-duration="1500" className="">
                 <div className="navbar bg-neutral-600 ">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -60,13 +60,15 @@ const Navbar = () => {
                     <div className="navbar-end">
                         {
                             user ?
-                                <div className="tooltip tooltip-left" data-tip={user?.displayName || "not found"}>
-                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-4">
-                                        <div className="w-10 rounded-full">
-                                            <img alt="null" src={user?.photoURL || users} />
+                                <Link to="/user">
+                                    <div className="tooltip tooltip-left " data-tip={user?.displayName || "not found"}>
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-4">
+                                            <div className="w-10 rounded-full">
+                                                <img alt="null" src={user?.photoURL || users} />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                                 :
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-4">
                                     <div className="w-10 rounded-full">
