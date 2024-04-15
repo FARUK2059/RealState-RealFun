@@ -1,9 +1,19 @@
 
-// import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { AuthContext } from "../../../../../Provider/AuthProvider";
+
 
 
 const EastDitails = () => {
+
+    // Update Dynamic title Setup
+    const { updateTitle } = useContext(AuthContext);
+
+    useEffect(() => {
+        updateTitle('EstateDitails | Estate');
+    }, [updateTitle]);
+
 
 
     // /***/ Estate Ditails Data Loade
@@ -82,10 +92,10 @@ const EastDitails = () => {
                                             <td className="text-lg font-medium">Facilities</td>
                                             <td className=" text-green-300 font-bold text-lg flex gap-3">:
                                                 {
-                                                    estate.facilities.map((este) => <div key={este}> 
-                                                            <div className="">
-                                                                {este}
-                                                            </div>
+                                                    estate.facilities.map((este) => <div key={este}>
+                                                        <div className="">
+                                                            {este}
+                                                        </div>
                                                     </div>
                                                     )
                                                 }

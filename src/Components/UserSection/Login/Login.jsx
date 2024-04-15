@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
@@ -7,6 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,14 +15,20 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    const { signInPassword, user, logOut } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
+    const { signInPassword, user, logOut, updateTitle } = useContext(AuthContext);
+
+    // Update Dynamic title Setup
+    useEffect(() => {
+        updateTitle('Login | Estate');
+    }, [updateTitle]);
 
     // Navigation System
     const location = useLocation();
     const navigat = useNavigate();
     const forms = location?.state || "/";
 
-    
+
     const auth = getAuth(app);
 
     // Google login
@@ -32,10 +39,10 @@ const Login = () => {
         signInWithPopup(auth, googleProvider)
             .then(Result => {
                 const logUser = Result.user;
-                console.log(logUser); 
+                console.log(logUser);
                 toast.success("Your LogIn successfully");
                 navigat(forms);
-                
+
             })
             .catch(error => {
                 console.log(error)
@@ -48,18 +55,18 @@ const Login = () => {
 
     const handleGitHubSignIn = () => {
         signInWithPopup(auth, gitHubProvider)
-        .then(result => {
-            const logGitUser = result.user;
-            console.log(logGitUser);
-            navigat(forms);
-            toast.success("Your GitHub LogIn successfully")
-        })
-        .catch(error => {
-            console.log(error);
-            toast.error("Your GitHub login faild")
-        })
+            .then(result => {
+                const logGitUser = result.user;
+                console.log(logGitUser);
+                navigat(forms);
+                toast.success("Your GitHub LogIn successfully")
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error("Your GitHub login faild")
+            })
     }
-    
+
     // password Login
     const handleLogin = e => {
         e.preventDefault();
@@ -73,7 +80,7 @@ const Login = () => {
                 console.log(result.user);
                 navigat(forms);
                 toast.success("Your LogIn successfull")
-                
+
             })
             .catch(error => {
                 console.error(error)
@@ -88,9 +95,9 @@ const Login = () => {
                 console.log(result)
                 toast.success("LogOut successfully")
                 navigat(forms);
-                
+
             })
-            .catch(error =>{
+            .catch(error => {
                 console.log(error)
                 toast.error("logOut faild")
             })
@@ -113,9 +120,9 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text text-black font-medium">Password</span>
                             </label>
-                            <input type="password" name="password" id="password" placeholder="Enter your password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 border focus:dark:border-violet-600" required />
-                            <div className="flex justify-end text-xs dark:text-gray-600">
-                                <a rel="noopener noreferrer" href="#">Forgot Password?</a>
+                            <div className="relative">
+                                <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Enter your password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 border focus:dark:border-violet-600" required />
+                                <span className="absolute mt-4 lg:right-4 right-4 md:right-4" onClick={() => setShowPassword(!showPassword)} >{showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
                             </div>
                         </div>
                         <button className="block w-full p-3 text-center rounded-lg dark:text-gray-50 dark:bg-violet-600">Login</button>

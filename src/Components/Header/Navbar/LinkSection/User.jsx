@@ -1,14 +1,18 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 
 
 const User = () => {
 
-    const { user, loading } = useContext(AuthContext);
-    // console.log(user);
+    const { user, loading, updateTitle } = useContext(AuthContext);
 
-    if(loading) {
+    // Update Dynamic title Setup
+    useEffect(() => {
+        updateTitle('User Profile | Estate');
+    }, [updateTitle]);
+
+    if (loading) {
         return <div><span className="loading loading-spinner text-warning"></span></div>
     }
 
@@ -32,7 +36,7 @@ const User = () => {
                                     <tbody>
                                         <tr className="hover">
                                             <td className="text-lg font-medium">Email</td>
-                                            <td className=" text-yellow-500 font-bold text-lg">: {user.email && <span>{user.email }</span> || <span>null</span> } </td>
+                                            <td className=" text-yellow-500 font-bold text-lg">: {user.email && <span>{user.email}</span> || <span>null</span>} </td>
                                         </tr>
                                     </tbody>
                                 </table>

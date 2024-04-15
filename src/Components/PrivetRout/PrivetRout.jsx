@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
 const PrivetRout = ({ children }) => {
 
     // location add 
     const location = useLocation()
-    console.log(location);
+    // console.log(location);
 
     const { user, loading } = useContext(AuthContext);
 
@@ -25,6 +26,10 @@ const PrivetRout = ({ children }) => {
             {children}
         </div>
     );
+};
+
+PrivetRout.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
 export default PrivetRout;

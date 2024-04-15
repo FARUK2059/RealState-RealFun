@@ -2,13 +2,27 @@
 import MainBody from "./MainBody/MainBody";
 import Slider from "./Slider/Slider";
 
-// import HomeBanner from "./HomeBanner/HomeBanner";
+// dynamic Title
+import { AuthContext } from "../../../../Provider/AuthProvider";
+import { useContext, useEffect } from "react";
 
 
 const Home = () => {
 
+    // Update Dynamic title Setup
+    const { updateTitle } = useContext(AuthContext);
+
+    useEffect(() => {
+        updateTitle('Home | Estate');
+      }, [updateTitle]);
+
+
     return (
         <div>
+
+            
+
+
             <div className="mb-4">
                 <div className="mt-4">
                     <Slider></Slider>

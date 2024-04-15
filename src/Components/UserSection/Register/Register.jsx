@@ -1,21 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import { useNavigate, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 
+
 const Register = () => {
-    const { creatUser, updateUserProfile } = useContext(AuthContext);
+    const { creatUser, updateUserProfile, updateTitle } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
 
-    // const location = useLocation();
-    // const navigat = useNavigate();
-    // const forms = location?.state || "/";
-
-    // const location = useLocation();
-    // console.log(location);
+    // Update Dynamic title Setup
+    useEffect(() => {
+        updateTitle('Register | Estate');
+    }, [updateTitle]);
 
 
     const handleregister = e => {
@@ -58,8 +59,8 @@ const Register = () => {
                     .then(() => {
                         toast.success("Your Registation successfully")
                     })
-                    // navigat(forms);
-                    
+                // navigat(forms);
+
 
             })
             .catch(error => {
@@ -100,10 +101,13 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text text-black font-medium">Password</span>
                                 </label>
-                                <input type="password" name="password" id="password" placeholder="Enter your password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 border focus:dark:border-violet-600" required />
+                                <div className="relative">
+                                    <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Enter your password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 border focus:dark:border-violet-600" required />
+                                    <span className="absolute mt-4 lg:right-4 right-4 md:right-4" onClick={() => setShowPassword(!showPassword)} >{showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
+                                </div>
                             </div>
                             <div className="flex mb-6 items-center">
-                                <input type="checkbox" defaultChecked className="checkbox border-orange-400 checked:border-indigo-800 [--chkbg:theme(colors.indigo.600)] [--chkfg:orange]" name="tarms" id="tarms" />
+                                <input type="checkbox" className="checkbox border-orange-400 checked:border-indigo-800 [--chkbg:theme(colors.indigo.600)] [--chkfg:orange]" name="tarms" id="tarms" />
                                 <label className="ml-2" htmlFor="tarms"> Accept our <a className="text-blue-600" href=""> Tarms and Condition </a> </label>
                             </div>
                             <button className="block w-full p-3 text-center rounded-lg dark:text-gray-50 dark:bg-violet-600">Submit</button>
