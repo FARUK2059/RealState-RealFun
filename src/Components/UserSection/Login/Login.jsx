@@ -10,7 +10,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -19,16 +19,15 @@ const Login = () => {
     const { signInPassword, user, logOut, updateTitle } = useContext(AuthContext);
     const [passwordError, setPasswordError] = useState('');
 
+    // Navigation System
+    const location = useLocation();
+    const navigat = useNavigate();
+    // const forms = location?.state || "/";
+
     // Update Dynamic title Setup
     useEffect(() => {
         updateTitle('Login | Estate');
     }, [updateTitle]);
-
-    // Navigation System
-    const location = useLocation();
-    const navigat = useNavigate();
-    const forms = location?.state || "/";
-
 
     const auth = getAuth(app);
 
@@ -42,7 +41,9 @@ const Login = () => {
                 const logUser = Result.user;
                 console.log(logUser);
                 toast.success("Your LogIn successfully");
-                navigat(forms);
+                  
+                // navigat(forms);
+                navigat(location?.state ? location.state : '/');
 
             })
             .catch(error => {
@@ -59,7 +60,8 @@ const Login = () => {
             .then(result => {
                 const logGitUser = result.user;
                 console.log(logGitUser);
-                navigat(forms);
+                // navigat(forms);
+                navigat(location?.state? location.state : '/');
                 toast.success("Your GitHub LogIn successfully")
             })
             .catch(error => {
@@ -79,8 +81,9 @@ const Login = () => {
         signInPassword(email, password)
             .then(result => {
                 console.log(result.user);
+                navigat(location?.state? location.state : '/');
                 toast.success("Your LogIn successfull")
-                navigat(forms);
+                // navigat(forms);
                 
             })
             .catch(error => {
@@ -95,7 +98,8 @@ const Login = () => {
             .then(result => {
                 console.log(result)
                 toast.success("LogOut successfully")
-                navigat(forms);
+                // navigat(forms);
+                navigat(location?.state? location.state : '/');
 
             })
             .catch(error => {
@@ -160,14 +164,12 @@ const Login = () => {
                                             </div>
                                     }
                                 </div>
-                                <ToastContainer />
+                               
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
 
         </div>
     );

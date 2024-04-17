@@ -1,16 +1,23 @@
 
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import { useContext, useEffect, useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { useNavigate, useLocation } from "react-router-dom";
 
 const UpdateProfile = () => {
 
     // Update Dynamic title Setup
     const { updateTitle, updateUserProfile } = useContext(AuthContext);
 
+    // Dynamic Title Creat
     useEffect(() => {
         updateTitle('Update Profile | Estate');
     }, [updateTitle]);
+
+    // Navigation System
+    const location = useLocation();
+    const navigat = useNavigate();
+    // const forms = location?.state? location.state : '/user';
 
     // update Profile
     const [displayName, setDisplayName] = useState(updateUserProfile.displayName || '');
@@ -21,9 +28,10 @@ const UpdateProfile = () => {
 
         try {
             await updateUserProfile(displayName, photoUrl);
-            toast.success("Update successfull, Check your Profile")
             setIsEditing(false);
-            alert.success("successfull")
+            navigat(location?.state? location.state : '/user')
+            toast.success("Update successfull, Check your Profile")
+            
 
         } catch (error) {
             toast.error("Updating Faild, Please try Again")
@@ -45,7 +53,7 @@ const UpdateProfile = () => {
                         <div data-aos="zoom-in" data-delay="2000" data-aos-duration="2500" className="max-w-md border  border-yellow-800 rounded-lg backdrop-blur-sm">
 
                             {/* main Body */}
-                            <div  className="grid justify-center p-10 font-poppins ">
+                            <div className="grid justify-center p-10 font-poppins ">
                                 <div data-aos="zoom-out" data-delay="2500" data-aos-duration="1500" className="w-full max-w-md p-8  rounded-xl backdrop-blur-3xl card-body dark:text-gray-800 border">
                                     <h1 className="text-2xl font-bold text-center text-yellow-300">Update Profile</h1>
 
@@ -71,7 +79,6 @@ const UpdateProfile = () => {
                                         <button className="block w-full p-3 text-center rounded-lg dark:text-gray-50 dark:bg-violet-600">{isEditing ? 'Update' : 'Edit'}</button>
 
                                     </form>
-                                    <ToastContainer />
                                 </div>
                             </div>
 
@@ -79,8 +86,6 @@ const UpdateProfile = () => {
                     </div>
                 </div>
             </div>
-
-
 
         </div>
     );
