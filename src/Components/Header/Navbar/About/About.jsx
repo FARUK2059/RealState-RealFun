@@ -13,9 +13,9 @@ const About = () => {
     }, [updateTitle]);
 
     return (
-        <div data-aos="zoom-in" data-aos-duration="1500" >
+        <div data-aos="zoom-in" data-aos-duration="1500" className="-z-1" >
 
-            <section className="bg-neutral-600 text-white">
+            <section style={{ zIndex:-1}} className="bg-neutral-600 text-white -z-50">
                 <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
                     <div>
                         <h2 className="text-3xl font-bold tracking-tight text-center sm:text-5xl dark:text-gray-900">Real Estate Website Features and Characteristics</h2>

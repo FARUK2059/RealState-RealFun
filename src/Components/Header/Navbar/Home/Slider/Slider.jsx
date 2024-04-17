@@ -31,9 +31,9 @@ export default function Slider() {
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
-                // style={
-                //     z-index: 0;
-                // } 
+                style={{
+                    zIndex:-1
+                }}
             >
                 <SwiperSlide >
 

@@ -84,13 +84,13 @@ const Register = () => {
 
     return (
 
-        <div data-aos="fade-up" data-aos-duration="1500" className="mt-4">
+        <div data-aos="fade-up" data-aos-duration="1500" className="mt-4 z-0">
             <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://images.pexels.com/photos/460695/pexels-photo-460695.jpeg?auto=compress&cs=tinysrgb&w=600)' }}>
                 <div className="hero-overlay bg-opacity-30"></div>
                 <div className="hero-content text-center text-neutral-content">
 
                     {/* Main Body */}
-                    <div data-aos="zoom-in-down"  data-aos-delay="500" data-aos-duration="1500" className="max-w-md border border-yellow-800 rounded-lg backdrop-blur-sm">
+                    <div data-aos="zoom-in-down"  data-aos-delay="500" data-aos-duration="1500" className="max-w-md border border-yellow-800 rounded-lg backdrop-blur-sm -z-50">
                         <div className="grid justify-center p-10 font-poppins">
                             <div className="w-full max-w-md p-8  rounded-xl backdrop-blur-sm dark:text-gray-800 border">
                                 <h1 className="text-2xl font-bold text-center text-yellow-300">Register your account</h1>

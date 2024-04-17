@@ -46,7 +46,7 @@ const UpdateProfile = () => {
 
     return (
         <div>
-            <div className="mt-4">
+            <div className="mt-4 -z-1">
                 <div data-aos="fade-up" data-aos-duration="1500" className="hero min-h-screen" style={{ backgroundImage: 'url(https://images.pexels.com/photos/460695/pexels-photo-460695.jpeg?auto=compress&cs=tinysrgb&w=600)' }}>
                     <div className="hero-overlay bg-opacity-30"></div>
                     <div className="hero-content text-center text-neutral-content">

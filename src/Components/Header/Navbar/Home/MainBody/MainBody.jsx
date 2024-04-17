@@ -37,8 +37,8 @@ const MainBody = () => {
                                 <div className="hero mx-auto h-72 rounded-lg relative" style={{ backgroundImage: `url(${estate.image})` }}>
                                     <div className="hero-overlay bg-opacity-0"></div>
                                     <div className="hero-content text-end text-neutral-content">
-                                        <div className="-mt-60 absolute p-2 ml-72">
-                                            <div className="badge badge-accent h-8 w-auto text-lg rounded-sm text-white">For {estate.status}</div>
+                                        <div className="-mt-60 absolute  p-2 lg:ml-72 md:ml-64 ml-52 ">
+                                            <div className="badge badge-accent lg:h-8 md:h-6 h4  w-auto lg:text-lg md:text-md text-sm rounded-sm text-white">For {estate.status}</div>
                                         </div>
                                     </div>
                                 </div>

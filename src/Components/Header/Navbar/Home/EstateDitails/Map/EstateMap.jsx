@@ -1,57 +1,34 @@
-// import { Map, Marker, Popup } from "leaflet";
-// import { TileLayer } from 'https://cdn.esm.sh/react-leaflet/TileLayer'
-// import { useRef, useState } from "react";
-// import { IoLocationSharp } from "react-icons/io5";
-// import L from "leaflet";
-// // import "../../../../../../../src/";
-// import osm from "./osm-provider"
+import { googleAPIKey } from "./googleAPIKey";
 
-// const markerIcon = new L.Icon({
-//     iconUrl: require(`${<IoLocationSharp />}`),
-//     iconSize: [35, 45],
-//     iconAnchor: [17, 45],
-//     popupAnchor: [3, -46]
-// })
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-// const EstateMap = () => {
-//     const [center, setCenter] = useState({ lat: 13.084622, lng: 80.248357 });
-//     const ZOOM_LEVEL = 10;
-//     const mapRef = useRef();
+const EstateMap = () => {
 
+    const defaultProps = {
+        center: {
+            lat: 10.99835602,
+            lng: 77.01502627
+        },
+        zoom: 11
+    };
 
-//     return (
-//         <>
-//             <header title="React Leaflet Map Setup" />
-//             <div className="row">
-//                 <div className="col text-center">
-//                     <h2>React Leaflet - Adding Markers to react leaflet</h2>
-//                     <p>Loading Basic Map using layer from map Title</p>
-//                     <div className="col">
-//                         <Map center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
+    return (
+        <>
+            <div style={{ height: '100vh', width: '100%' }}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: googleAPIKey }}
+                    defaultCenter={defaultProps.center}
+                    defaultZoom={defaultProps.zoom}
+                >
+                    <AnyReactComponent
+                        lat={59.955413}
+                        lng={30.337844}
+                        text="My Marker"
+                    />
+                </GoogleMapReact>
+            </div>
+        </>
+    );
+};
 
-//                             <TileLayer
-//                                 url={osm.maptiler.url}
-//                                 attribution= {osm.maptiler.attribution}
-//                             />
-
-//                             <Marker
-//                                 position={[13.084622, 80.248357]}
-//                                 icon={markerIcon}
-//                             >
-//                             <Popup>
-//                                 <b>First Marker</b>
-//                             </Popup>
-
-//                             </Marker>
-
-//                         </Map>
-//                     </div>
-
-//                 </div>
-//             </div>
-
-//         </>
-//     );
-// };
-
-// export default EstateMap;
+export default EstateMap;

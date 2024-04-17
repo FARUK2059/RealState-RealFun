@@ -2,8 +2,9 @@
 import { useContext, useEffect } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../../../../Provider/AuthProvider";
-// import EstateMap from "./Map/EstateMap";
 import Marquee from "react-fast-marquee";
+// import EstateMap from "./Map/EstateMap";
+
 
 
 
@@ -31,7 +32,7 @@ const EastDitails = () => {
 
     return (
 
-        <div>
+        <div className="-z-1">
 
             {/* Estate Ditails */}
             <div data-aos="fade-up" data-aos-duration="1500" className="mt-4">
@@ -39,13 +40,13 @@ const EastDitails = () => {
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-center text-neutral-content">
 
-                        <div className="grid lg:grid-cols-3 lg:p-3 md:p-2 p-1 lg:gap-8 md:gap-4 gap-2 mt-6 mb-6">
+                        <div className="grid lg:grid-cols-3 lg:p-3 md:p-2 p-1 lg:gap-8 md:gap-4 gap-2 mt-6 mb-6 -z-1">
 
                             {/* Left Side img */}
-                            <div data-aos="flip-left"
+                            <div data-aos="flip-left "
                                 data-aos-easing="ease-out-cubic"
-                                data-aos-duration="2000" className="grid lg:col-span-2 justify-center items-center text-center  rounded-2xl">
-                                <img className="min-h-full mx-auto rounded-2xl" src={image} alt="" />
+                                data-aos-duration="2000" className="grid lg:col-span-2 justify-center items-center text-center  rounded-2xl -z-10">
+                                <img className="min-h-full mx-auto rounded-2xl -z-1" src={image} alt="" />
                             </div>
 
                             {/* ditails section  */}
@@ -125,7 +126,7 @@ const EastDitails = () => {
             </div>
 
             {/* Map Add section */}
-            <div className="mx-auto h-48">
+            <div className="">
                 {/* <EstateMap></EstateMap> */}
             </div>
 
