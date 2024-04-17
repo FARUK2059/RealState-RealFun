@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../../../../Provider/AuthProvider";
 // import EstateMap from "./Map/EstateMap";
+import Marquee from "react-fast-marquee";
 
 
 
@@ -96,16 +97,18 @@ const EastDitails = () => {
                                         <tbody>
                                             <tr className="hover">
                                                 <td className="text-lg font-medium">Facilities</td>
-                                                <td className=" text-green-300 font-bold text-lg flex gap-3">:
-                                                    {
-                                                        estate.facilities.map((este) => <div key={este}>
-                                                            <div className="">
-                                                                {este}
+                                                <Marquee pauseOnHover={true} speed={80}>
+                                                    <td className=" text-green-300 font-bold text-lg flex gap-3">:
+                                                        {
+                                                            estate.facilities.map((este) => <div key={este}>
+                                                                <div className="">
+                                                                    {este}
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        )
-                                                    }
-                                                </td>
+                                                            )
+                                                        }
+                                                    </td>
+                                                </Marquee>
                                             </tr>
                                         </tbody>
 

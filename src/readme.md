@@ -17,6 +17,19 @@ terminals, convention centers, art galleries etc.
 - **Toast Notifications**: Display toast notifications for login, registration, Update-Profile and error messages.
 - **Environment Variables**: Utilized for Firebase config keys.
 
+### Use of React  npm Package
+
+- toast notifications Package
+- React Fast Marquee
+- AOS Package
+- Swiper slider
+- Animate.css
+- Daisyui ThailwindCSS
+- ThailwindCSS Library
+- MAMBA UI
+- React-leaflet etc
+
+
 ### GitHub Commits
 
 - Initial project setup
