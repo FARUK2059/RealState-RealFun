@@ -19,15 +19,25 @@ terminals, convention centers, art galleries etc.
 
 ### Use of React  npm Package
 
-- toast notifications Package
-- React Fast Marquee
-- AOS Package
-- Swiper slider
-- Animate.css
-- Daisyui ThailwindCSS
-- ThailwindCSS Library
-- MAMBA UI
-- React-leaflet etc
+- animate.css
+- aos
+- dotenv
+- firebase
+- google-map-reac
+- leafle
+- localforage
+- match-sorte
+- react
+- react-dom
+- react-fast-marque
+- react-helme
+- react-icon
+- react-leafle
+- react-router-dom
+- react-toastify
+- sort-by
+- swiper
+- swiper-react
 
 
 ### GitHub Commits
