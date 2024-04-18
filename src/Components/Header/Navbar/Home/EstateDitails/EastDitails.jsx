@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../../../../Provider/AuthProvider";
 import Marquee from "react-fast-marquee";
-// import EstateMap from "./Map/EstateMap";
+import EstateMap from "./Map/EstateMap";
 
 
 
@@ -127,7 +127,7 @@ const EastDitails = () => {
 
             {/* Map Add section */}
             <div className="">
-                {/* <EstateMap></EstateMap> */}
+                <EstateMap></EstateMap>
             </div>
 
         </div>

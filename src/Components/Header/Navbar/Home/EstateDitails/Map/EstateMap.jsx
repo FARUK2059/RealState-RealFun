@@ -1,34 +1,30 @@
-import { googleAPIKey } from "./googleAPIKey";
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
 const EstateMap = () => {
-
-    const defaultProps = {
-        center: {
-            lat: 10.99835602,
-            lng: 77.01502627
-        },
-        zoom: 11
-    };
-
-    return (
-        <>
-            <div style={{ height: '100vh', width: '100%' }}>
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: googleAPIKey }}
-                    defaultCenter={defaultProps.center}
-                    defaultZoom={defaultProps.zoom}
-                >
-                    <AnyReactComponent
-                        lat={59.955413}
-                        lng={30.337844}
-                        text="My Marker"
-                    />
-                </GoogleMapReact>
-            </div>
-        </>
-    );
+  return (
+    <div className='grid max-h-screen p-4 z-50 items-center justify-center'>
+        <p className='p-4 text-2xl font-extrabold text-yellow-400'> RealFun Real Estate location</p>
+      <div style={{ height: '500px', width: '1200px' }}>
+        <MapContainer 
+          center={[24.91667, 91.76667]} 
+          zoom={10} 
+          scrollWheelZoom={true}
+          style={{ height: '100%', width: '100%' }}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[24.91667, 91.76667]}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+        </MapContainer>
+      </div>
+    </div>
+  );
 };
 
 export default EstateMap;
