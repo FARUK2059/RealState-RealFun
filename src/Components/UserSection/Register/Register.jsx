@@ -134,10 +134,12 @@ const Register = () => {
                                         </label>
                                         <div className="relative">
                                             <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Enter your password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 border focus:dark:border-violet-600" required />
+                                            <span className="absolute mt-4 lg:right-4 right-4 md:right-4" onClick={() => setShowPassword(!showPassword)} >{showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
+                                            
                                             <div className="label ">
                                                 <span className="label-text-alt text-red-400">{errorpassword}</span>
                                             </div>
-                                            <span className="absolute mt-4 lg:right-4 right-4 md:right-4" onClick={() => setShowPassword(!showPassword)} >{showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
+                                            
                                         </div>
                                     </div>
 
