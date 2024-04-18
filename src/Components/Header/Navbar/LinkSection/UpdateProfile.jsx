@@ -2,7 +2,7 @@
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 import { toast } from 'react-toastify';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 const UpdateProfile = () => {
 
@@ -24,20 +24,36 @@ const UpdateProfile = () => {
     const [photoUrl, setPhotoURL] = useState(updateUserProfile.photoURL || '');
     const [isEditing, setIsEditing] = useState(true);
 
+
     const handleregister = async () => {
 
-        try {
-            await updateUserProfile(displayName, photoUrl);
-            setIsEditing(false);
-            navigat(location?.state? location.state : '/user')
-            toast.success("Update successfull, Check your Profile")
-            
-
-        } catch (error) {
-            toast.error("Updating Faild, Please try Again")
-        }
-
+        updateUserProfile(displayName, photoUrl)
+            .then(() => {
+                navigat(location?.state ? location.state : '/');
+                setIsEditing(false);
+                toast.success("Your Registation and Login successfull")
+            })
+            .catch(error => {
+                console.log(error)
+                toast.error("You already registered, Please back to home")
+            })
     }
+
+    // Other Update Profile System
+    // const handleregister = async () => {
+
+    //     try {
+    //         await updateUserProfile(displayName, photoUrl);
+    //         setIsEditing(false);
+    //         navigat(location?.state? location.state : '/user')
+    //         toast.success("Update successfull, Check your Profile")
+
+
+    //     } catch (error) {
+    //         toast.error("Updating Faild, Please try Again")
+    //     }
+
+    // }
 
     useEffect(() => {
         setDisplayName(updateUserProfile.displayName || '');
@@ -76,9 +92,15 @@ const UpdateProfile = () => {
                                         </div>
 
                                         {/* Submit Button  */}
-                                        <button className="block w-full p-3 text-center rounded-lg dark:text-gray-50 dark:bg-violet-600">{isEditing ? 'Update' : 'Edit'}</button>
+                                        <div className="">
+                                            <button className="block w-full p-3 text-center rounded-lg dark:text-gray-50 dark:bg-violet-600">{isEditing ? 'Update' : 'Edit'}</button>
+                                        </div>
 
                                     </form>
+                                </div>
+                                <div className="p-4">
+                                    <Link to="/user"><button className="btn btn-secondary w-3/4">
+                                        See Profile</button></Link>
                                 </div>
                             </div>
 

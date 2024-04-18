@@ -71,7 +71,7 @@ const Register = () => {
                 navigat(location?.state? location.state : '/');
                 updateUserProfile(name, photoURL)
                     .then(() => {
-                        toast.success("Your Registation successfully")
+                        toast.success("Your Registation and Login successfull")
                     })
             })
             .catch(error => {
